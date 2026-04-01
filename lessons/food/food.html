@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Їжа та кулінарія — ENGLISHzONE</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/lesson.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-left">
+    <a href="../../index.html" class="back-home">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      На головну
+    </a>
+    <div class="header-divider"></div>
+    <div class="lesson-logo">ENGLISH<span>z</span>ONE</div>
+  </div>
+  <nav class="header-nav">
+    <button class="active" onclick="showSection('home')">🏠 Головна</button>
+    <button onclick="showSection('vocab')">📖 Словник</button>
+    <button onclick="showSection('quiz')">🎯 Квіз</button>
+    <button onclick="showSection('phrases')">💬 Фрази</button>
+    <button onclick="showSection('recipes')">👨‍🍳 Рецепти</button>
+    <button onclick="showSection('progress')">📊 Прогрес</button>
+  </nav>
+</header>
+
+<!-- ═══ HOME ═══ -->
+<section id="home" class="section active">
+
+  <div class="lesson-hero">
+    <div class="lesson-tag">Урок · Їжа та кулінарія</div>
+    <h1>Мова <span>кухні</span></h1>
+    <p>Словник, фрази та рецепти — все в одному місці. Починай з базових інгредієнтів і доходь до рівня шеф-кухаря.</p>
+    <div class="lesson-hero-btns">
+      <button class="btn-primary" onclick="showSection('vocab')">Почати вчити →</button>
+      <button class="btn-secondary" onclick="showSection('quiz')">Пройти квіз</button>
+    </div>
+  </div>
+
+  <div class="lesson-stats">
+    <div class="stat-item"><span class="stat-num">120+</span><span class="stat-label">Слів</span></div>
+    <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">Тем</span></div>
+    <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">Типи квізів</span></div>
+    <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">Рецептів</span></div>
+  </div>
+
+  <div class="topics-section">
+    <div class="section-eyebrow">Теми уроку</div>
+    <h2 class="section-title">Оберіть тему</h2>
+    <p class="section-sub">Натисніть на тему, щоб розпочати вивчення словника</p>
+    <div class="topics-grid">
+      <div class="topic-card" onclick="showVocabTopic('vegetables')">
+        <span class="topic-emoji">🥦</span>
+        <div class="topic-name">Овочі</div>
+        <div class="topic-count">10 слів</div>
+      </div>
+      <div class="topic-card" onclick="showVocabTopic('fruits')">
+        <span class="topic-emoji">🍓</span>
+        <div class="topic-name">Фрукти</div>
+        <div class="topic-count">8 слів</div>
+      </div>
+      <div class="topic-card" onclick="showVocabTopic('cooking-methods')">
+        <span class="topic-emoji">🔥</span>
+        <div class="topic-name">Методи готування</div>
+        <div class="topic-count">12 слів</div>
+      </div>
+      <div class="topic-card" onclick="showVocabTopic('utensils')">
+        <span class="topic-emoji">🍴</span>
+        <div class="topic-name">Посуд та інструменти</div>
+        <div class="topic-count">9 слів</div>
+      </div>
+      <div class="topic-card" onclick="showVocabTopic('taste')">
+        <span class="topic-emoji">😋</span>
+        <div class="topic-name">Смак та текстура</div>
+        <div class="topic-count">10 слів</div>
+      </div>
+      <div class="topic-card" onclick="showVocabTopic('meals')">
+        <span class="topic-emoji">🍽️</span>
+        <div class="topic-name">Страви та прийоми їжі</div>
+        <div class="topic-count">8 слів</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══ VOCAB ═══ -->
+<section id="vocab" class="section">
+  <div class="vocab-container">
+    <div class="module-header">
+      <button class="back-btn" onclick="showSection('home')">←</button>
+      <div>
+        <h2 class="section-title" id="vocab-title">Весь словник</h2>
+        <p class="section-sub">Натисни на картку, щоб побачити переклад та приклад</p>
+      </div>
+    </div>
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" onclick="filterVocab('all', this)">Всі</button>
+      <button class="filter-btn" onclick="filterVocab('vegetables', this)">🥦 Овочі</button>
+      <button class="filter-btn" onclick="filterVocab('fruits', this)">🍓 Фрукти</button>
+      <button class="filter-btn" onclick="filterVocab('cooking-methods', this)">🔥 Методи</button>
+      <button class="filter-btn" onclick="filterVocab('utensils', this)">🍴 Посуд</button>
+      <button class="filter-btn" onclick="filterVocab('taste', this)">😋 Смак</button>
+      <button class="filter-btn" onclick="filterVocab('meals', this)">🍽️ Страви</button>
+    </div>
+    <div class="vocab-grid" id="vocab-grid"></div>
+  </div>
+</section>
+
+<!-- ═══ QUIZ ═══ -->
+<section id="quiz" class="section">
+  <div class="quiz-container">
+    <div class="module-header">
+      <button class="back-btn" onclick="showSection('home')">←</button>
+      <div>
+        <h2 class="section-title">Квіз</h2>
+        <p class="section-sub">Перевір свої знання з їжі та кулінарії</p>
+      </div>
+    </div>
+    <div class="quiz-progress-bar">
+      <div class="quiz-progress-fill" id="quiz-progress"></div>
+    </div>
+    <div id="quiz-content"></div>
+  </div>
+</section>
+
+<!-- ═══ PHRASES ═══ -->
+<section id="phrases" class="section">
+  <div class="phrases-container">
+    <div class="module-header">
+      <button class="back-btn" onclick="showSection('home')">←</button>
+      <div>
+        <h2 class="section-title">Корисні фрази</h2>
+        <p class="section-sub">Натисни, щоб побачити переклад українською</p>
+      </div>
+    </div>
+    <div id="phrases-content"></div>
+  </div>
+</section>
+
+<!-- ═══ RECIPES ═══ -->
+<section id="recipes" class="section">
+  <div class="recipe-container">
+    <div class="module-header">
+      <button class="back-btn" onclick="showSection('home')">←</button>
+      <div>
+        <h2 class="section-title">Рецепти</h2>
+        <p class="section-sub">Вивчай кулінарну лексику через реальні рецепти</p>
+      </div>
+    </div>
+    <div id="recipe-list" class="recipe-grid"></div>
+    <div id="recipe-detail" class="recipe-detail"></div>
+  </div>
+</section>
+
+<!-- ═══ PROGRESS ═══ -->
+<section id="progress" class="section">
+  <div class="progress-container">
+    <div class="module-header">
+      <button class="back-btn" onclick="showSection('home')">←</button>
+      <div>
+        <h2 class="section-title">Твій прогрес</h2>
+        <p class="section-sub">Продовжуй навчатись щодня!</p>
+      </div>
+    </div>
+    <div class="progress-overview">
+      <div class="prog-card">
+        <div class="prog-num" id="pg-learned">0</div>
+        <div class="prog-label">Слів вивчено</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-num" id="pg-quiz">—</div>
+        <div class="prog-label">Результат квізу</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-num">1</div>
+        <div class="prog-label">День поспіль 🔥</div>
+      </div>
+    </div>
+    <div class="prog-bar-wrap">
+      <div class="prog-bar-label"><span>🥦 Овочі</span><span id="pct-veg">0%</span></div>
+      <div class="prog-bar"><div class="prog-bar-fill fill-purple" id="bar-veg" style="width:0%"></div></div>
+      <div class="prog-bar-label"><span>🍓 Фрукти</span><span id="pct-fruit">0%</span></div>
+      <div class="prog-bar"><div class="prog-bar-fill fill-amber" id="bar-fruit" style="width:0%"></div></div>
+      <div class="prog-bar-label"><span>🔥 Методи готування</span><span id="pct-method">0%</span></div>
+      <div class="prog-bar"><div class="prog-bar-fill fill-mid" id="bar-method" style="width:0%"></div></div>
+    </div>
+    <h3 style="font-family:'Syne',sans-serif;font-weight:800;color:var(--purple);margin-bottom:16px;letter-spacing:-0.3px;">Досягнення</h3>
+    <div class="achievement-grid" id="achievements-grid"></div>
+  </div>
+</section>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
